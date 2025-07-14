@@ -1,0 +1,41 @@
+<p class="text-success"><%= notice %></p>
+
+<% content_for :title, "Caretakers" %>
+
+<h1 class="mb-4">Caretakers</h1>
+
+<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+  <% @caretakers.each do |caretaker| %>
+    <div class="col">
+      <div class="card h-100 shadow-sm">
+        <!-- Optional image at the top -->
+        <%# Replace src with an actual image URL if needed %>
+        <img src="https://via.placeholder.com/300x150.png?text=Caretaker" class="card-img-top" alt="Caretaker Image">
+
+        <div class="card-body">
+          <h5 class="card-title">
+            <%= caretaker.first_name %> <%= caretaker.last_name %>
+          </h5>
+          <p class="card-text mb-1"><strong>Email:</strong> <%= caretaker.email %></p>
+          <p class="card-text mb-1"><strong>Mobile:</strong> <%= caretaker.mobile %></p>
+          <p class="card-text mb-1"><strong>Category:</strong> <%= caretaker.category %></p>
+          <p class="card-text"><strong>Address:</strong> <%= caretaker.address %></p>
+        </div>
+
+        <div class="card-footer bg-white border-top-0 d-flex justify-content-between">
+          <%= link_to "Show", caretaker, class: "btn btn-sm btn-outline-primary" %>
+          <%= link_to "Edit", edit_caretaker_path(caretaker), class: "btn btn-sm btn-outline-secondary" %>
+          <%= link_to "Delete", caretaker, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-sm btn-outline-danger" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<div class="mt-4 text-center">
+  <% if user_signed_in? %>
+    <%= link_to new_caretaker_path, class: "btn btn-lg btn-success px-4 py-2" do %>
+      <i class="bi bi-person-plus"></i> New Caretaker
+    <% end %>
+  <% end %>
+</div>

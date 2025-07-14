@@ -1,0 +1,11 @@
+<% content_for :title, "New caretaker" %>
+
+<h1>New caretaker</h1>
+<br/>
+<%= render "form", caretaker: @caretaker %>
+
+<br>
+
+<div class="mt-3">
+  <%= link_to "Back to caretakers", caretakers_path, class: "btn btn-dark" %>
+</div>

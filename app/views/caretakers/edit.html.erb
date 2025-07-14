@@ -1,0 +1,14 @@
+<% content_for :title, "Editing caretaker" %>
+
+<h1>Editing caretaker</h1>
+
+<br/>
+
+<%= render "form", caretaker: @caretaker %>
+
+<br>
+
+<div class="d-flex gap-2">
+  <%= link_to "Show this caretaker", @caretaker, class: "btn btn-secondary" %>
+  <%= link_to "Back to caretakers", caretakers_path, class: "btn btn-secondary" %>
+</div>

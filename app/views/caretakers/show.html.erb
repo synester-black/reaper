@@ -1,0 +1,9 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @caretaker %>
+
+<div class="d-flex gap-2 flex-wrap mt-3">
+  <%= link_to "Edit this caretaker", edit_caretaker_path(@caretaker), class: "btn btn-secondary" %>
+  <%= link_to "Back to caretakers", caretakers_path, class: "btn btn-secondary" %>
+  <%= button_to "Destroy this caretaker", @caretaker, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+</div>

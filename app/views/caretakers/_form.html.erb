@@ -1,0 +1,49 @@
+<%= form_with(model: caretaker, html: { class: "needs-validation" }) do |form| %>
+  <% if caretaker.errors.any? %>
+    <div class="alert alert-danger">
+      <h4><%= pluralize(caretaker.errors.count, "error") %> prohibited this caretaker from being saved:</h4>
+      <ul class="mb-0">
+        <% caretaker.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-3">
+    <%= form.label :first_name, class: "form-label" %>
+    <%= form.text_field :first_name, class: "form-control", placeholder:"First Name" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :last_name, class: "form-label" %>
+    <%= form.text_field :last_name, class: "form-control", placeholder:"Last Name" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :email, class: "form-label" %>
+    <%= form.text_field :email, class: "form-control", placeholder:"Email" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :mobile, class: "form-label" %>
+    <%= form.text_field :mobile, class: "form-control" , placeholder:"Mobile"%>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :category, class: "form-label" %>
+    <%= form.select :category, options_for_select(['Caretaker Level I', 'Caretaker Level II', 'Jr Nurse Level I', 'Jr Nurse Level II', 'Sr Nurse Level I', 'Sr Nurse Level II']), {}, class: "form-select" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :address, class: "form-label" %>
+    <%= form.text_field :address, class: "form-control" , placeholder:"Address"%>
+  </div>
+  <div class="mb-3">
+    <%= form.number_field :user_id,id: :caretaker_user_id,class: "form-control" , value: current_user.id, type: :hidden %>
+  </div>
+
+  <div>
+    <%= form.submit "Save", class: "btn btn-secondary" %>
+  </div>
+<% end %>
